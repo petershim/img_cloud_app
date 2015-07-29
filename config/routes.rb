@@ -1,4 +1,12 @@
 Rails.application.routes.draw do
+  root 'images#index'
+  get 'login', to: 'sessions#new'
+
+  resources :images
+  get '/images/:id/delete' => 'images#destroy', as: :delete_image
+  resources :users, only: [:new, :create, :show, :index]
+  resources :sessions, only: [:new, :create, :destroy]
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

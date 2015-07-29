@@ -1,0 +1,10 @@
+<h1>All Images</h2>
+<ul>
+  <% @images.each do |img|%>
+  <li>Title:<%= img.title%></li>
+  <li><%= image_tag img.url, width: 100%></li>
+  <li>User:<%= img.user.name%></li>
+  <li>User ID:<%= img.user.id%></li>
+  <li>Image ID:<%= img.id%></li>
+  <%end%>
+</ul>

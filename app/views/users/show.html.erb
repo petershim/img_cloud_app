@@ -1,0 +1,9 @@
+<h1>Welcome <%= @user.name %></h1>
+<p>Email: <%= @user.email %></p>
+<ul>Images:
+  <%= @user.images.each do |image| %>
+    <li><%= image.title%></li>
+    <li><%= image_tag image.url, width: 100%></li>
+    <li><%= image.upvotes%></li>
+  <%end%>
+</ul>
