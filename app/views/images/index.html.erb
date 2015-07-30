@@ -2,7 +2,7 @@
 <ul>
   <% @images.each do |img|%>
   <li>Title:<%= img.title%></li>
-  <li><%= image_tag img.url, width: 100%></li>
+  <li><%= image_tag img.url, width: 200%></li>
   <li>User:<%= img.user.name%></li>
   <li>User ID:<%= img.user.id%></li>
   <li>Image ID:<%= img.id%></li>

@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   get 'login', to: 'sessions#new'
 
   resources :images
+  get 'upvotes' => 'images#upvotes', as: :upvotes
   get '/images/:id/delete' => 'images#destroy', as: :delete_image
   resources :users, only: [:new, :create, :show, :index]
   resources :sessions, only: [:new, :create, :destroy]

@@ -31,10 +31,23 @@ class ImagesController < ApplicationController
 
   def update
     @image = Image.find(params[:id])
+    # @upvote = @image.upvotes
+    @image.increment(:upvotes, by=1).save
     if @image.update(image_params)
       redirect_to images_path(@image)
     else
       redirect_to edit_image_path
+    end
+  end
+
+  def upvotes
+    @image = Image.find(params[:id])
+    @image.upvotes += 1
+    flash[:notice] = @image.upvotes
+    if @image.save
+      redirect_to image_path @image
+    else
+      redirect_to images_path
     end
   end
 
@@ -47,8 +60,8 @@ class ImagesController < ApplicationController
 
   private
   def set_image
-      @image = Image.find(params[:id])
-    end
+    @image = Image.find(params[:id])
+  end
 
   def image_params
     params.require(:image).permit(:title, :url, :upvotes)

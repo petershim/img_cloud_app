@@ -17,9 +17,9 @@ ActiveRecord::Schema.define(version: 20150728013154) do
     t.string   "title"
     t.text     "url"
     t.integer  "user_id"
-    t.integer  "upvotes"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "upvotes",    default: 0
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
   end
 
   create_table "users", force: :cascade do |t|

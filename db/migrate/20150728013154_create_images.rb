@@ -4,7 +4,7 @@ class CreateImages < ActiveRecord::Migration
       t.string :title
       t.text :url
       t.integer :user_id
-      t.integer :upvotes
+      t.integer :upvotes, default: 0
 
       t.timestamps null: false
     end
