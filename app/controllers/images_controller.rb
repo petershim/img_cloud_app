@@ -1,7 +1,7 @@
 class ImagesController < ApplicationController
   before_action :set_image, only: [:show, :edit]
   # before_action :belongs_to_user, only: [:edit, :destroy]
-  before_action :authenticate, except: [:index, :show ]
+  before_action :authenticate, except: [:index]
 
   def index
     @images = Image.all
@@ -31,8 +31,6 @@ class ImagesController < ApplicationController
 
   def update
     @image = Image.find(params[:id])
-    # @upvote = @image.upvotes
-    @image.increment(:upvotes, by=1).save
     if @image.update(image_params)
       redirect_to images_path(@image)
     else
@@ -42,10 +40,12 @@ class ImagesController < ApplicationController
 
   def upvotes
     @image = Image.find(params[:id])
-    @image.upvotes += 1
+    unless current_user.id == @image.user.id
+      @image.upvotes += 1
+    end
     flash[:notice] = @image.upvotes
     if @image.save
-      redirect_to image_path @image
+      redirect_to :back
     else
       redirect_to images_path
     end

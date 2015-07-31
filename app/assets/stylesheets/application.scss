@@ -1,3 +1,14 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+body {
+  margin: 0 auto;
+  background-image: url("http://www.pixeden.com/media/k2/galleries/93/003-subtle-light-pattern-background-texture.jpg");
+  background-color: #E8E8E8;
+  background-blend-mode: overlay;
+  background-position: right top;
+}
+
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.
@@ -13,6 +24,3 @@
  *= require_tree .
  *= require_self
  */
-
- @import "bootstrap-sprockets";
- @import "bootstrap";

@@ -1,25 +1,21 @@
-
+<div class="container" style="text-align: center">
   <h1>Welcome <%= @user.name %></h1>
   <p>Email: <%= @user.email %></p>
-  <h2>Images:</h2>
-    <!-- <%= @user.images.each do |image| %>
-      <li><%= image.title%></li>
-      <li><%= image_tag image.url, width: image.upvotes*100%></li>
-      <li><%= image.upvotes%></li>
-    <%end%>
-  </ul> -->
+  <h2>Gallery</h2>
+</div>
 
-  <div class="row">
-    <%= @user.images.each do |image| %>
+<div class="row">
+  <% @user.images.each do |image| %>
     <div class="col-sm-6 col-md-4">
-      <div class="thumbnail">
+      <a href="/images/<%=image.id%>" class="thumbnail">
         <img src="<%=image.url%>" alt="...">
-        <div class="caption">
-          <h3><%=image.title%></h3>
-          <p>Upvotes: <%=image.upvotes%></p>
-          <p><%= link_to "", upvotes_path(:id => image.id), class: "glyphicon glyphicon-circle-arrow-up" %> <a href="<%=image.url%>" class="btn btn-default" role="button">Go</a></p>
-        </div>
+      </a>
+      <div class="caption">
+        <h3><%=image.title%></h3>
+        <% unless image.user.id == current_user.id %>
+          <p>Upvotes: <%=image.upvotes%> <%= link_to "", upvotes_path(:id => image.id), class: "glyphicon glyphicon-circle-arrow-up" %></p>
+        <%end%>
       </div>
     </div>
-    <%end%>
-  </div>
+  <%end%>
+</div>

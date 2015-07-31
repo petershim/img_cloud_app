@@ -1,14 +1,16 @@
+<div class="container" style="text-align:center">
 <h2><%= @image.title%>
 <p>
-  <%= image_tag @image.url, width: 200 %>
+  <%= image_tag @image.url, width: 600%>
 </p>
-<p>User:<%= @image.user.name%></p>
-Upvotes: <%= @image.upvotes %>
+<h3>By <%= @image.user.name%></h3>
+<p>Upvotes: <%= @image.upvotes %></p>
   <% if @image.user.id == current_user.id %>
     <p>
       <%= link_to "Edit", edit_image_path(@image) %>
       <%= link_to "Delete", delete_image_path%>
     </p>
   <% else %>
-      <%= link_to "", upvotes_path(:id => @image.id), class: "glyphicon glyphicon-circle-arrow-up" %>
+      <p><%= link_to "", upvotes_path(:id => @image.id), class: "glyphicon glyphicon-circle-arrow-up" %></p>
   <% end %>
+</div>
