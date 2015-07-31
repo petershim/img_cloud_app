@@ -12,10 +12,10 @@
       <div class="navbar-collapse collapse navbar-responsive-collapse">
         <% if current_user %>
           <a class="navbar-brand" href="/images">IMG</a>
-          <%= link_to "You", user_path(current_user), class: "btn btn-default navbar-btn" %>
+          <!-- <%= link_to "You", user_path(current_user), class: "btn btn-default navbar-btn" %> -->
           <%= link_to "Upload", new_image_path, class: "btn btn-default navbar-btn" %>
           <%= link_to 'Log out', session_path(session), method: :delete, data: {confirm: "Are you sure?"}, class:"btn btn-default navbar-btn" %>
-          <p class="navbar-text navbar-right">Signed in as <%= current_user.name %></p>
+          <p class="navbar-text navbar-right">Signed in as <a href="<%=user_path(current_user)%>" class="navbar-link"><%= current_user.name %></a></p>
         <% else %>
           <a class="navbar-brand" href="/images">IMG</a>
           <%= link_to 'Log in', login_path, class:"btn btn-default navbar-btn" %>

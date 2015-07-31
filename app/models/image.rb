@@ -5,11 +5,11 @@ class Image < ActiveRecord::Base
     if self.upvotes <= 5
       "col-md-2"
     elsif self.upvotes <= 10
-      "col-md-4"
+      "col-md-3"
     elsif self.upvotes <= 15
-      "col-md-6"
+      "col-md-4"
     elsif self.upvotes > 15
-      "col-md-8"
+      "col-md-6"
     end
   end
 end
