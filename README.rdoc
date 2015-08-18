@@ -1,28 +1,25 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+The IMG Cloud App, a new interface to view your favorite images or your photos hosted on Imgur.
 
-Things you may want to cover:
+Technologies Used: Ruby on Rails, CSS Bootstrap
 
-* Ruby version
+User Stories:
 
-* System dependencies
+A user should be able to sign up for an account, and upload images.
 
-* Configuration
+An authenticated user should be able to edit, or delete his/her account.
 
-* Database creation
+An authenticated user should be able to upload/edit/delete images.
 
-* Database initialization
+An authenticated user should be able to view images on other user’s pages.
 
-* How to run the test suite
+Unauthenticated users should only be able to view the front page of all images.
 
-* Services (job queues, cache servers, search engines, etc.)
+An authenticated user be able to up vote other images. 
 
-* Deployment instructions
-
-* ...
+Image size should changed based on number of up votes.
 
 
-Please feel free to use a different markup language if you do not plan to run
+
 <tt>rake doc:app</tt>.
